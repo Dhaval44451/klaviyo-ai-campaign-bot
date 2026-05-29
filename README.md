@@ -31,3 +31,21 @@ Google Gemini AI
 Klaviyo API
 Docker
 ngrok (for local webhook testing)
+
+**Workflow architecture**
+
+Telegram Trigger
+   ↓
+Klaviyo API fetch
+   ↓
+Data cleanup
+   ↓
+Gemini analysis
+   ↓
+Gemini campaign generation
+   ↓
+JSON cleanup
+   ↓
+Telegram formatting
+   ↓
+Send response
