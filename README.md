@@ -49,3 +49,6 @@ JSON cleanup
 Telegram formatting
    ↓
 Send response
+
+<img width="1632" height="601" alt="image" src="https://github.com/user-attachments/assets/09e6c9f1-af03-48b0-a0a2-14e61953aa63" />
+
