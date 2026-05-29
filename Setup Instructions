@@ -1,0 +1,80 @@
+📦 Setup Instructions
+1. Clone Repository
+git clone https://github.com/yourusername/klaviyo-ai-campaign-bot.git
+cd klaviyo-ai-campaign-bot
+2. Install Docker Desktop
+
+Download and install Docker Desktop:
+https://www.docker.com/products/docker-desktop/
+
+3. Create Persistent n8n Volume
+docker volume create n8n_data
+4. Start ngrok
+
+Install ngrok:
+https://ngrok.com/download
+
+Authenticate ngrok:
+
+ngrok config add-authtoken YOUR_NGROK_TOKEN
+
+Start tunnel:
+
+ngrok http 5678
+
+Copy the HTTPS forwarding URL.
+
+Example:
+
+https://abcd-1234.ngrok-free.app
+5. Start n8n
+
+Replace the ngrok URL below with your own:
+
+docker run -it --rm --name n8n -p 5678:5678 -e WEBHOOK_URL=https://YOUR_NGROK_URL -e N8N_HOST=YOUR_NGROK_HOST -e N8N_PROTOCOL=https -v n8n_data:/home/node/.n8n docker.n8n.io/n8nio/n8n
+6. Open n8n
+
+Open:
+
+https://YOUR_NGROK_URL
+7. Import Workflow
+Open n8n
+Click “Import from File”
+Select the exported workflow JSON
+8. Configure Credentials
+
+Add the following credentials inside n8n:
+
+Telegram Bot
+Create bot using @BotFather
+Add Telegram API credential
+Google Gemini API
+Add Gemini API key credential
+Klaviyo API
+Add Header Auth credential
+Include Klaviyo private API key
+9. Activate Workflow
+
+Enable the Telegram Trigger workflow.
+
+Send a message to your Telegram bot to test the automation.
+
+🔒 Security Notes
+
+Do NOT commit:
+
+API keys
+Telegram bot tokens
+ngrok tokens
+.env files
+
+Use environment variables or n8n credential manager instead.
+
+📸 Example Output
+AI-generated email subject lines
+SMS marketing hooks
+CTA recommendations
+VIP audience targeting angles
+Urgency campaign ideas
+
+Delivered directly to Telegram in formatted reports.
